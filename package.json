@@ -1,0 +1,19 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "youtube-clone with JS",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkhh9469/wetube.git"
+  },
+  "author": "KKH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkhh9469/wetube/issues"
+  },
+  "homepage": "https://github.com/kkhh9469/wetube#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
