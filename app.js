@@ -25,6 +25,13 @@ app.use((req, res, next) => {
   );
   return next();
 }); // fontawesome을 link가 아닌 script로 사용할 수 있음
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     "Content_Security-Policy",
+//     "script-src 'self'https://achive.org"
+//   );
+//   return next();
+// }); //동영상 재생이 안될시 사용
 app.use(localsMiddleware);
 
 app.use(express.static(__dirname + "/"));

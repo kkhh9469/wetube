@@ -8,14 +8,14 @@ const SEARCH = "/search";
 // Users
 const USERS = "/users";
 const USER_DETAIL = "/:id";
-const EDIT_PROFILE = "/:id/edit-profile";
-const CHANGE_PASSWORD = "/:id/change-password";
+const EDIT_PROFILE = "/edit-profile";
+const CHANGE_PASSWORD = "/change-password";
 
 // Videos
 const VIDEO = "/video";
 const UPLOAD = "/upload";
 const VIDEO_DETAIL = "/:id";
-const EDIT_VIDEO = "/:id/edit";
+const EDIT_VIDEO = "/:id/edit-video";
 const DELETE_VIDEO = "/:id/delete";
 
 const routes = {
