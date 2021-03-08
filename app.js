@@ -3,13 +3,19 @@ import cookieParser from "cookie-parser";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import passport from "passport";
+import session from "express-session";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 
+import "./passport";
+
 const app = express();
+
+const MongoStore = require("connect-mongo").default;
 
 app.use(helmet());
 app.set("view engine", "pug");
@@ -33,6 +39,17 @@ app.use((req, res, next) => {
   );
   return next();
 }); //동영상 재생이 안될시 사용
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL }),
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(localsMiddleware);
 
 app.use(express.static(__dirname + "/"));
